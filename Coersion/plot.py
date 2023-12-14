@@ -10,11 +10,14 @@ values=[8,9,48,21,33,242]
 labels = ['Not taken','Pressured, for some other reason', 'Pressured to take, for education or work','Pressured to take, for travel',"Willingly, for others' health", 'Willingly, for own health']
 colors=['#43BEC7','#FE6D01','#30A952','#FBBD00','#EB4031','#3F86F4']
 
-custom_labels = [f'{label} ({round((size/total)*100,1)}%)' for label, size in zip(labels, values)]
 
 # PLOTTING
+def func(pct, allvals):
+    absolute = int(np.round(pct/100.*np.sum(allvals)))
+    return f"{pct:.1f}%\n({absolute:d})"
+
 fig, ax = plt.subplots(figsize=(6, 3), subplot_kw=dict(aspect="equal"))
-wedges, texts = ax.pie(values, colors=colors, startangle=90,wedgeprops=dict(width=1, edgecolor='black'))
+wedges, texts, autotexts = ax.pie(values, colors=colors, startangle=90,autopct=lambda pct: func(pct, values),wedgeprops=dict(width=1, edgecolor='black'),textprops=dict(color="w"))
 bbox_props = dict(boxstyle="square,pad=0.3", fc="w", ec="k", lw=0.72)
 
 kw = dict(arrowprops=dict(arrowstyle="-"),
@@ -30,5 +33,7 @@ for i, p in enumerate(wedges):
     ax.annotate(labels[i], xy=(x, y), xytext=(1.35*np.sign(x), (1.3 if i>0 else 1.5)*y),
                 horizontalalignment=horizontalalignment, **kw)
     
+
+plt.setp(autotexts, size=6, weight="bold")
 plt.title("Quantification of COVID-19 Vaccine Coercion in India: A Survey Study",y=1.2)
 plt.show() 

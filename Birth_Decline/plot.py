@@ -47,20 +47,21 @@ with open('data.csv', 'r') as file:
 
 
 # PLOTTING 
-bar_colors=['#4284f3']* (len(x_period)-3)+['red','#4C1C24','#98704D']
+bar_colors=['#4284f3']* (len(x_period)-3)+['red','#4C1C24','#98704D'] # setting different colors for last three bars
 plt.bar(x_period,y_deaths,color=bar_colors,edgecolor=edge_colors,linewidth=2,capstyle='round', joinstyle='round')
 
 # Add text annotations over the bars
 for i, value in enumerate(y_deaths):
-    plt.text(i, value +6999, str(value), ha='center',va='bottom', fontsize=8,color=bar_colors[i])
+    plt.text(i, value +6999, str(value), ha='center',va='bottom', fontsize=8,color=bar_colors[i]) # +6999 sets the offset for the labels above the bars
 
-plt.title('Germany Birth-Rate Decline')
+plt.title('Germany Birth-Rate Decline',y=1.1)
 plt.ylabel('Number of Births in Germany')
 plt.grid(axis='y')
 plt.ylim(0,250000)
-plt.gca().set_axisbelow(True)
-plt.xticks(rotation=90) 
+plt.gca().set_axisbelow(True) #setting the z-index of the grid lower than the bars
+plt.xticks(rotation=90) # rotating x labels 
 plt.box(None)
+
 
 plt.show()
     
