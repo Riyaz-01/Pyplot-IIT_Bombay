@@ -1,3 +1,6 @@
+# this graph represents the number of excess deaths in Europe from 2017 to 2022
+# this is present on slide number 21 of the given pdf
+
 import csv
 import matplotlib.pyplot as plt
 from collections import defaultdict

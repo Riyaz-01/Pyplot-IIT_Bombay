@@ -1,3 +1,6 @@
+# this graph shows the brith-rate decline in Germany between 2018 and 2022
+# this graph is present on slide number 11 of the given pdf
+
 import csv
 import matplotlib.pyplot as plt
 
@@ -58,7 +61,6 @@ plt.ylim(0,250000)
 plt.gca().set_axisbelow(True)
 plt.xticks(rotation=90) 
 plt.box(None)
-plt.legend()
 
 plt.show()
     
