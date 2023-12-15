@@ -23,7 +23,7 @@ month_abbreviations = {
     'December': 'Dec'
 }
 
-with open('data.csv', 'r') as file:
+with open('birth_decline.csv', 'r') as file:
     reader = csv.DictReader(file, delimiter=';')
 
     counter=0

@@ -14,10 +14,10 @@ colors=['#43BEC7','#FE6D01','#30A952','#FBBD00','#EB4031','#3F86F4']
 # PLOTTING
 def func(pct, allvals):
     absolute = int(np.round(pct/100.*np.sum(allvals)))
-    return f"{pct:.1f}%\n({absolute:d})"
+    return f"{absolute:d}"
 
 fig, ax = plt.subplots(figsize=(6, 3), subplot_kw=dict(aspect="equal"))
-wedges, texts, autotexts = ax.pie(values, colors=colors, startangle=90,autopct=lambda pct: func(pct, values),wedgeprops=dict(width=1, edgecolor='black'),textprops=dict(color="w"))
+wedges, texts, autotexts = ax.pie(values, colors=colors, startangle=90,autopct=lambda pct: func(pct, values),wedgeprops=dict(width=1, edgecolor='black'),textprops=dict(color="black"))
 bbox_props = dict(boxstyle="square,pad=0.3", fc="w", ec="k", lw=0.72)
 
 kw = dict(arrowprops=dict(arrowstyle="-"),

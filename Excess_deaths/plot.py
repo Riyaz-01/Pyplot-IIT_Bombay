@@ -17,7 +17,7 @@ def cummulative_sum(arr):
 
     return result_sequence
 
-with open('data.csv', 'r') as file:
+with open('excess_deaths.csv', 'r') as file:
     reader = csv.DictReader(file, delimiter=';')
   
     for row in reader:
